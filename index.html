@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Formula Booklet Overlay -->
+<div class="booklet-overlay" id="booklet-overlay">
+    <div class="booklet-panel" id="booklet-panel">
+        <div class="booklet-header">
+            <span class="booklet-title">Formula Booklet</span>
+            <button class="booklet-close" id="booklet-close">✕</button>
+        </div>
+        <div class="booklet-tabs">
+            <button class="btab active" data-tab="trig">Trigonometry</button>
+            <button class="btab" data-tab="calc">Calculus</button>
+            <button class="btab" data-tab="ids">Identities</button>
+        </div>
+
+        <!-- Trig Formulas -->
+        <div class="btab-content active" id="tab-trig">
+            <div class="formula-section">
+                <div class="fsec-title">Basic Ratios (right triangle)</div>
+                <div class="formula-row"><span class="fl">sin θ</span><span class="feq">=</span><span class="fr">opposite / hypotenuse</span></div>
+                <div class="formula-row"><span class="fl">cos θ</span><span class="feq">=</span><span class="fr">adjacent / hypotenuse</span></div>
+                <div class="formula-row"><span class="fl">tan θ</span><span class="feq">=</span><span class="fr">sin θ / cos θ</span></div>
+                <div class="formula-row"><span class="fl">csc θ</span><span class="feq">=</span><span class="fr">1 / sin θ</span></div>
+                <div class="formula-row"><span class="fl">sec θ</span><span class="feq">=</span><span class="fr">1 / cos θ</span></div>
+                <div class="formula-row"><span class="fl">cot θ</span><span class="feq">=</span><span class="fr">cos θ / sin θ</span></div>
+            </div>
+            <div class="formula-section">
+                <div class="fsec-title">Key Angle Values</div>
+                <table class="ftable">
+                    <thead><tr><th>θ°</th><th>θ rad</th><th>sin</th><th>cos</th><th>tan</th></tr></thead>
+                    <tbody>
+                        <tr><td>0°</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+                        <tr><td>30°</td><td>π/6</td><td>½</td><td>√3/2</td><td>1/√3</td></tr>
+                        <tr><td>45°</td><td>π/4</td><td>√2/2</td><td>√2/2</td><td>1</td></tr>
+                        <tr><td>60°</td><td>π/3</td><td>√3/2</td><td>½</td><td>√3</td></tr>
+                        <tr><td>90°</td><td>π/2</td><td>1</td><td>0</td><td>—</td></tr>
+                        <tr><td>180°</td><td>π</td><td>0</td><td>-1</td><td>0</td></tr>
+                        <tr><td>270°</td><td>3π/2</td><td>-1</td><td>0</td><td>—</td></tr>
+                        <tr><td>360°</td><td>2π</td><td>0</td><td>1</td><td>0</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="formula-section">
+                <div class="fsec-title">Inverse Functions</div>
+                <div class="formula-row"><span class="fl">arcsin(x)</span><span class="feq">→</span><span class="fr">angle whose sin is x</span></div>
+                <div class="formula-row"><span class="fl">arccos(x)</span><span class="feq">→</span><span class="fr">angle whose cos is x</span></div>
+                <div class="formula-row"><span class="fl">arctan(x)</span><span class="feq">→</span><span class="fr">angle whose tan is x</span></div>
+            </div>
+            <div class="formula-section">
+                <div class="fsec-title">Hyperbolic Functions</div>
+                <div class="formula-row"><span class="fl">sinh x</span><span class="feq">=</span><span class="fr">(eˣ − e⁻ˣ) / 2</span></div>
+                <div class="formula-row"><span class="fl">cosh x</span><span class="feq">=</span><span class="fr">(eˣ + e⁻ˣ) / 2</span></div>
+                <div class="formula-row"><span class="fl">tanh x</span><span class="feq">=</span><span class="fr">sinh x / cosh x</span></div>
+            </div>
+        </div>
+
+        <!-- Calculus Formulas -->
+        <div class="btab-content" id="tab-calc">
+            <div class="formula-section">
+                <div class="fsec-title">Limits</div>
+                <div class="formula-row"><span class="fl">lim(sin x / x)</span><span class="feq">=</span><span class="fr">1, as x → 0</span></div>
+                <div class="formula-row"><span class="fl">lim((1+1/n)ⁿ)</span><span class="feq">=</span><span class="fr">e, as n → ∞</span></div>
+            </div>
+            <div class="formula-section">
+                <div class="fsec-title">Differentiation Rules</div>
+                <div class="formula-row"><span class="fl">d/dx [c]</span><span class="feq">=</span><span class="fr">0</span></div>
+                <div class="formula-row"><span class="fl">d/dx [xⁿ]</span><span class="feq">=</span><span class="fr">n·xⁿ⁻¹</span></div>
+                <div class="formula-row"><span class="fl">d/dx [eˣ]</span><span class="feq">=</span><span class="fr">eˣ</span></div>
+                <div class="formula-row"><span class="fl">d/dx [ln x]</span><span class="feq">=</span><span class="fr">1 / x</span></div>
+                <div class="formula-row"><span class="fl">d/dx [sin x]</span><span class="feq">=</span><span class="fr">cos x</span></div>
+                <div class="formula-row"><span class="fl">d/dx [cos x]</span><span class="feq">=</span><span class="fr">-sin x</span></div>
+                <div class="formula-row"><span class="fl">d/dx [tan x]</span><span class="feq">=</span><span class="fr">sec²x</span></div>
+                <div class="formula-row"><span class="fl">Chain Rule</span><span class="feq">:</span><span class="fr">d/dx[f(g(x))] = f'(g(x))·g'(x)</span></div>
+                <div class="formula-row"><span class="fl">Product Rule</span><span class="feq">:</span><span class="fr">(uv)' = u'v + uv'</span></div>
+                <div class="formula-row"><span class="fl">Quotient Rule</span><span class="feq">:</span><span class="fr">(u/v)' = (u'v − uv') / v²</span></div>
+            </div>
+            <div class="formula-section">
+                <div class="fsec-title">Integration Rules</div>
+                <div class="formula-row"><span class="fl">∫ xⁿ dx</span><span class="feq">=</span><span class="fr">xⁿ⁺¹/(n+1) + C</span></div>
+                <div class="formula-row"><span class="fl">∫ eˣ dx</span><span class="feq">=</span><span class="fr">eˣ + C</span></div>
+                <div class="formula-row"><span class="fl">∫ 1/x dx</span><span class="feq">=</span><span class="fr">ln|x| + C</span></div>
+                <div class="formula-row"><span class="fl">∫ sin x dx</span><span class="feq">=</span><span class="fr">-cos x + C</span></div>
+                <div class="formula-row"><span class="fl">∫ cos x dx</span><span class="feq">=</span><span class="fr">sin x + C</span></div>
+                <div class="formula-row"><span class="fl">∫ sec²x dx</span><span class="feq">=</span><span class="fr">tan x + C</span></div>
+                <div class="formula-row"><span class="fl">FTC</span><span class="feq">:</span><span class="fr">∫ₐᵇ f(x)dx = F(b) − F(a)</span></div>
+            </div>
+            <div class="formula-section">
+                <div class="fsec-title">Calculator Usage — Calculus Mode</div>
+                <div class="formula-note">d/dx at x: Enter x value, then the function button, then the point.<br>∫ₐᵇ: Enter lower bound a, then upper bound b, pick function, enter n (subdivisions).<br>Results are numerical approximations computed with high precision.</div>
+            </div>
+        </div>
+
+        <!-- Identities -->
+        <div class="btab-content" id="tab-ids">
+            <div class="formula-section">
+                <div class="fsec-title">Pythagorean Identities</div>
+                <div class="formula-row"><span class="fl">sin²θ + cos²θ</span><span class="feq">=</span><span class="fr">1</span></div>
+                <div class="formula-row"><span class="fl">1 + tan²θ</span><span class="feq">=</span><span class="fr">sec²θ</span></div>
+                <div class="formula-row"><span class="fl">1 + cot²θ</span><span class="feq">=</span><span class="fr">csc²θ</span></div>
+            </div>
+            <div class="formula-section">
+                <div class="fsec-title">Double Angle</div>
+                <div class="formula-row"><span class="fl">sin 2θ</span><span class="feq">=</span><span class="fr">2 sin θ cos θ</span></div>
+                <div class="formula-row"><span class="fl">cos 2θ</span><span class="feq">=</span><span class="fr">cos²θ − sin²θ</span></div>
+                <div class="formula-row"><span class="fl">tan 2θ</span><span class="feq">=</span><span class="fr">2 tan θ / (1 − tan²θ)</span></div>
+            </div>
+            <div class="formula-section">
+                <div class="fsec-title">Sum & Difference</div>
+                <div class="formula-row"><span class="fl">sin(A±B)</span><span class="feq">=</span><span class="fr">sinA cosB ± cosA sinB</span></div>
+                <div class="formula-row"><span class="fl">cos(A±B)</span><span class="feq">=</span><span class="fr">cosA cosB ∓ sinA sinB</span></div>
+                <div class="formula-row"><span class="fl">tan(A±B)</span><span class="feq">=</span><span class="fr">(tanA ± tanB) / (1 ∓ tanA tanB)</span></div>
+            </div>
+            <div class="formula-section">
+                <div class="fsec-title">Half Angle</div>
+                <div class="formula-row"><span class="fl">sin(θ/2)</span><span class="feq">=</span><span class="fr">±√((1 − cosθ)/2)</span></div>
+                <div class="formula-row"><span class="fl">cos(θ/2)</span><span class="feq">=</span><span class="fr">±√((1 + cosθ)/2)</span></div>
+                <div class="formula-row"><span class="fl">tan(θ/2)</span><span class="feq">=</span><span class="fr">sinθ / (1 + cosθ)</span></div>
+            </div>
+            <div class="formula-section">
+                <div class="fsec-title">Law of Sines & Cosines</div>
+                <div class="formula-row"><span class="fl">a/sinA = b/sinB</span><span class="feq">=</span><span class="fr">c/sinC</span></div>
+                <div class="formula-row"><span class="fl">c²</span><span class="feq">=</span><span class="fr">a² + b² − 2ab cosC</span></div>
+            </div>
+            <div class="formula-section">
+                <div class="fsec-title">Euler's Formula</div>
+                <div class="formula-row"><span class="fl">eⁱˣ</span><span class="feq">=</span><span class="fr">cos x + i sin x</span></div>
+                <div class="formula-row"><span class="fl">eⁱπ + 1</span><span class="feq">=</span><span class="fr">0</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Calculator -->
+<div class="calculator">
+    <!-- Mode Tabs -->
+    <div class="mode-tabs">
+        <button class="mtab active" data-mode="basic">Basic</button>
+        <button class="mtab" data-mode="trig">Trig</button>
+        <button class="mtab" data-mode="calc">Calculus</button>
+        <button class="booklet-btn" id="booklet-btn" title="Open Formula Booklet">⊞ Formulae</button>
+    </div>
+
+    <!-- Top Screen: Expression & Final Result -->
+    <div class="screen top-screen">
+        <div id="expression-display" class="expression"></div>
+        <div id="result-display" class="result">0</div>
+    </div>
+
+    <!-- Middle Screen: Step-by-Step Breakdown -->
+    <div class="screen middle-screen" id="steps-display">
+        <div class="step-placeholder">Steps will appear here...</div>
+    </div>
+
+    <!-- ═══ BASIC KEYPAD ═══ -->
+    <div class="keypad basic-pad active-pad" id="pad-basic">
+        <button class="btn fn" data-action="clear">C</button>
+        <button class="btn fn" data-action="append" data-val="(">(</button>
+        <button class="btn fn" data-action="append" data-val=")">)</button>
+        <button class="btn op" data-action="append" data-val="/">÷</button>
+
+        <button class="btn num" data-action="append" data-val="7">7</button>
+        <button class="btn num" data-action="append" data-val="8">8</button>
+        <button class="btn num" data-action="append" data-val="9">9</button>
+        <button class="btn op" data-action="append" data-val="*">×</button>
+
+        <button class="btn num" data-action="append" data-val="4">4</button>
+        <button class="btn num" data-action="append" data-val="5">5</button>
+        <button class="btn num" data-action="append" data-val="6">6</button>
+        <button class="btn op" data-action="append" data-val="-">−</button>
+
+        <button class="btn num" data-action="append" data-val="1">1</button>
+        <button class="btn num" data-action="append" data-val="2">2</button>
+        <button class="btn num" data-action="append" data-val="3">3</button>
+        <button class="btn op" data-action="append" data-val="+">+</button>
+
+        <button class="btn num zero" data-action="append" data-val="0">0</button>
+        <button class="btn num" data-action="append" data-val=".">.</button>
+        <button class="btn eq" data-action="evaluate">=</button>
+    </div>
+
+    <!-- ═══ TRIG KEYPAD ═══ -->
+    <div class="keypad trig-pad" id="pad-trig">
+        <!-- Row 1: controls -->
+        <button class="btn fn" data-action="clear">C</button>
+        <button class="btn fn" data-action="append" data-val="(">(</button>
+        <button class="btn fn" data-action="append" data-val=")">)</button>
+        <button class="btn toggle-angle" id="angle-toggle">DEG</button>
+
+        <!-- Row 2: sin, cos, tan, x² -->
+        <button class="btn trig" data-action="trig" data-fn="sin">sin</button>
+        <button class="btn trig" data-action="trig" data-fn="cos">cos</button>
+        <button class="btn trig" data-action="trig" data-fn="tan">tan</button>
+        <button class="btn trig" data-action="trig" data-fn="pow2">x²</button>
+
+        <!-- Row 3: asin, acos, atan, √ -->
+        <button class="btn trig" data-action="trig" data-fn="asin">sin⁻¹</button>
+        <button class="btn trig" data-action="trig" data-fn="acos">cos⁻¹</button>
+        <button class="btn trig" data-action="trig" data-fn="atan">tan⁻¹</button>
+        <button class="btn trig" data-action="trig" data-fn="sqrt">√x</button>
+
+        <!-- Row 4: sinh, cosh, tanh, log -->
+        <button class="btn trig" data-action="trig" data-fn="sinh">sinh</button>
+        <button class="btn trig" data-action="trig" data-fn="cosh">cosh</button>
+        <button class="btn trig" data-action="trig" data-fn="tanh">tanh</button>
+        <button class="btn trig" data-action="trig" data-fn="log">log</button>
+
+        <!-- Row 5: π, e, ^, ln -->
+        <button class="btn const" data-action="append" data-val="π">π</button>
+        <button class="btn const" data-action="append" data-val="e">e</button>
+        <button class="btn op" data-action="append" data-val="^">^</button>
+        <button class="btn trig" data-action="trig" data-fn="ln">ln</button>
+
+        <!-- Row 6: nums 7 8 9 ÷ -->
+        <button class="btn num" data-action="append" data-val="7">7</button>
+        <button class="btn num" data-action="append" data-val="8">8</button>
+        <button class="btn num" data-action="append" data-val="9">9</button>
+        <button class="btn op" data-action="append" data-val="/">÷</button>
+
+        <!-- Row 7: nums 4 5 6 × -->
+        <button class="btn num" data-action="append" data-val="4">4</button>
+        <button class="btn num" data-action="append" data-val="5">5</button>
+        <button class="btn num" data-action="append" data-val="6">6</button>
+        <button class="btn op" data-action="append" data-val="*">×</button>
+
+        <!-- Row 8: nums 1 2 3 − -->
+        <button class="btn num" data-action="append" data-val="1">1</button>
+        <button class="btn num" data-action="append" data-val="2">2</button>
+        <button class="btn num" data-action="append" data-val="3">3</button>
+        <button class="btn op" data-action="append" data-val="-">−</button>
+
+        <!-- Row 9: 0 . = + -->
+        <button class="btn num" data-action="append" data-val="0">0</button>
+        <button class="btn num" data-action="append" data-val=".">.</button>
+        <button class="btn eq" data-action="evaluate">=</button>
+        <button class="btn op" data-action="append" data-val="+">+</button>
+    </div>
+
+    <!-- ═══ CALCULUS KEYPAD ═══ -->
+    <div class="keypad calc-pad" id="pad-calc">
+        <div class="calc-info">Enter a numeric value and pick an operation below.</div>
+
+        <!-- Derivative row -->
+        <div class="calc-row-label">Derivative  d/dx  at  x =</div>
+        <div class="calc-btns">
+            <button class="btn clfn" data-action="deriv" data-fn="sin">d(sin)/dx</button>
+            <button class="btn clfn" data-action="deriv" data-fn="cos">d(cos)/dx</button>
+            <button class="btn clfn" data-action="deriv" data-fn="tan">d(tan)/dx</button>
+            <button class="btn clfn" data-action="deriv" data-fn="ln">d(ln)/dx</button>
+            <button class="btn clfn" data-action="deriv" data-fn="exp">d(eˣ)/dx</button>
+            <button class="btn clfn" data-action="deriv" data-fn="xn">d(xⁿ)/dx</button>
+        </div>
+
+        <!-- Integral row -->
+        <div class="calc-row-label">Definite Integral  ∫ₐᵇ  f(x) dx</div>
+        <div class="calc-btns">
+            <button class="btn clfn" data-action="integral" data-fn="sin">∫ sin x</button>
+            <button class="btn clfn" data-action="integral" data-fn="cos">∫ cos x</button>
+            <button class="btn clfn" data-action="integral" data-fn="tan">∫ tan x</button>
+            <button class="btn clfn" data-action="integral" data-fn="ln">∫ ln x</button>
+            <button class="btn clfn" data-action="integral" data-fn="exp">∫ eˣ</button>
+            <button class="btn clfn" data-action="integral" data-fn="xn">∫ xⁿ</button>
+        </div>
+
+        <!-- Number pad for calculus inputs -->
+        <div class="keypad mini-numpad">
+            <button class="btn fn" data-action="clear">C</button>
+            <button class="btn num" data-action="append" data-val="(">(</button>
+            <button class="btn num" data-action="append" data-val=")">)</button>
+            <button class="btn op" data-action="append" data-val="-">−</button>
+
+            <button class="btn num" data-action="append" data-val="7">7</button>
+            <button class="btn num" data-action="append" data-val="8">8</button>
+            <button class="btn num" data-action="append" data-val="9">9</button>
+            <button class="btn num" data-action="append" data-val=".">.</button>
+
+            <button class="btn num" data-action="append" data-val="4">4</button>
+            <button class="btn num" data-action="append" data-val="5">5</button>
+            <button class="btn num" data-action="append" data-val="6">6</button>
+            <button class="btn op" data-action="append" data-val="+">+</button>
+
+            <button class="btn num" data-action="append" data-val="1">1</button>
+            <button class="btn num" data-action="append" data-val="2">2</button>
+            <button class="btn num" data-action="append" data-val="3">3</button>
+            <button class="btn num zero" data-action="append" data-val="0">0</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
